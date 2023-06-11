@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4dab1d28d72b9a942ba42cb972fec6f4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - playSprite: {instanceID: 0}
+  - pauseSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

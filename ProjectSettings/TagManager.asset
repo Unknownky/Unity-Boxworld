@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - BlackWall
+  - WhiteWall
+  - BlackBox
+  - WhiteBox
+  - WhiteTarget
+  - BlackTarget
+  - Outerline
+  - MusicKeep
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Outerline
+  - Water
+  - UI
+  - 
+  - Wall
+  - Target
+  - Box
+  - Player
+  - CommonUI
+  - Gradient
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Target
+    uniqueID: 992400815
+    locked: 0
+  - name: Box
+    uniqueID: 2684340989
+    locked: 0
+  - name: Player
+    uniqueID: 3511771801
+    locked: 0
