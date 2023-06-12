@@ -4,20 +4,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 
     Vector2 moveDir;
+
+    [Header("Boxs Detect")]
     public LayerMask detectLayer;//只检测wall层
     public LayerMask boxLayer;//只检测Box层
+    public string BlackBoxTag = null;
+    public string WhiteBoxTag = null;
+
     private int Mancd = 0;//储存人物状态;0:normal; 1:black; 2:white
-    public string BlackBoxTag;
-    public string WhiteBoxTag;
     private string Line = "a";//表示全部的方向
-    private Animator animator;
-    private new Rigidbody2D rigidbody2D;
+    private Animator animator = null;
+    private new Rigidbody2D rigidbody2D = null;
+
 
     private void Start()
     {
@@ -27,42 +31,37 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerMovement("None");
+    }
+
+    public void PlayerMovement(string clickstring)
+    {
         //暂且使用Vector2
         moveDir = Vector2.zero;
-        //进行移动操作
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            moveDir = Vector2.right;
-        
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //进行移动操作
+        if (Input.GetKeyDown(KeyCode.RightArrow) || clickstring=="Right")
+            moveDir = Vector2.right;
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || clickstring == "Left")
             moveDir = Vector2.left;
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || clickstring == "Down")
             moveDir = Vector2.down;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || clickstring == "Up")
             moveDir = Vector2.up;
-
-        //if(Input.GetKeyDown(KeyCode.P))
-        //GUI部分
-        //if(Input.GetKeyDown(KeyCode.Escape))
 
         if (Input.GetKeyDown(KeyCode.E))//改变人物状态
         {
             Check();
         }
 
-        //没有明显转向
-        //if (moveDir == Vector2.right)//使用欧拉角进行朝向的转变
-        //    rigidbody2D.transform.eulerAngles = Vector3.right;
-        //else if (moveDir == Vector2.left)
-        //    rigidbody2D.transform.eulerAngles = Vector3.left;
-
-        //限定运动轴
         if (Line == "x" && (moveDir == Vector2.up || moveDir == Vector2.down))
             moveDir = Vector2.zero;
 
-        if(Line == "y" && (moveDir == Vector2.right || moveDir == Vector2.left))
+        if (Line == "y" && (moveDir == Vector2.right || moveDir == Vector2.left))
             moveDir = Vector2.zero;
 
 
@@ -76,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
         moveDir = Vector2.zero;
     }
+
     bool CanMoveToDir(Vector2 dir)
     {
         RaycastHit2D hitblow = Physics2D.Raycast(transform.position, dir, 0.2f, detectLayer); // 发射射线检测当前地面
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(dir);
     }
 
-    void Check()
+    public void Check()
     {
         if(Mancd != 0)//正常状态直接转变
         {

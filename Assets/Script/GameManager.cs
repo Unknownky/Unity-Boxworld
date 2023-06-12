@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private int CurrentGridIndex;
     public bool Wbox = false;
     public bool Bbox = false;
+    
 
     [Header("Gradient")]
     public GameObject Gradient;
@@ -21,11 +22,13 @@ public class GameManager : MonoBehaviour
     private GameObject MusicKeep;
     private GameObject PlayerObject;
     private PlayerController PlayerController;
+    public GameObject ButtonContainer = null;
+
     //在该脚本中进行游戏结束的判定，游戏场景的切换，游戏地图的切换，游戏音乐的管理
     private void Awake()
     {
         PlayerObject = GameObject.Find("Player");
-
+        ButtonContainer = GameObject.Find("Buttons");
     }
 
     void Start()
@@ -44,23 +47,20 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))//重开当前关卡
             ResetScene();
-        SwitchMap();
+        if(Input.GetKeyDown(KeyCode.C))
+            SwitchMap();
     }
 
-    void SwitchMap()
+    public void SwitchMap()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            grids[CurrentGridIndex].enabled = false;
-            MoveMap(CurrentGridIndex, false);
-            CurrentGridIndex = (CurrentGridIndex + 1) % 2;
-            grids[CurrentGridIndex].enabled = true;
-            MoveMap(CurrentGridIndex, true);
-        }//切换Grid组而物品不变
+        grids[CurrentGridIndex].enabled = false;
+        MoveMap(CurrentGridIndex, false);
+        CurrentGridIndex = (CurrentGridIndex + 1) % 2;
+        grids[CurrentGridIndex].enabled = true;
+        MoveMap(CurrentGridIndex, true);
+     //切换Grid组而物品不变
         //为避免bug暂停0.2秒   
     }
-
-
 
     public void GameOver()
     {
@@ -69,11 +69,12 @@ public class GameManager : MonoBehaviour
             PlayerObject = GameObject.Find("Player");
             PlayerController = PlayerObject.GetComponent<PlayerController>();
             PlayerController.enabled = false;
+            ButtonContainer.SetActive(false);
             StartCoroutine(LoadNextStage()); //它只在需要的时候才执行查询
         }//游戏结束,给出提示，直接进入下一关
     }
 
-    void ResetScene()//重新加载当前关卡
+    public void ResetScene()//重新加载当前关卡
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//加载某个编号的关卡(当前关卡)
         //SceneManager.GetActiveScene().buildIndex获取当前关卡Index

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +28,9 @@ public class MusicController : MonoBehaviour
     public void ToggleMusic()
     {
         if (audioSource == null)
+        {
             audioSource = GameObject.FindGameObjectWithTag("MusicKeep").GetComponent<AudioSource>();
+        }
 
         if (audioSource.isPlaying)
         {
