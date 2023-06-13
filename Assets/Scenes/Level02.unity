@@ -6122,7 +6122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7099054235648887561, guid: 197b173cde1306044b199dc441f8219f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7099054235648887561, guid: 197b173cde1306044b199dc441f8219f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6214,6 +6214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197b173cde1306044b199dc441f8219f, type: 3}
+--- !u!1 &1510386797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7099054235648887557, guid: 197b173cde1306044b199dc441f8219f, type: 3}
+  m_PrefabInstance: {fileID: 1510386796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1727314180
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,6 +6367,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 468174415}
     - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: GradientPC
+      value: 
+      objectReference: {fileID: 387427982}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: GradientPhone
+      value: 
+      objectReference: {fileID: 468174415}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
       propertyPath: ButtonContainer
       value: 
       objectReference: {fileID: 1359707535}
@@ -6373,6 +6386,58 @@ PrefabInstance:
       propertyPath: grids.Array.data[1]
       value: 
       objectReference: {fileID: 63138813}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: scaleSwitch.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: uIGameobjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: rotationSwitch.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: scaleSwitch.Array.data[0]
+      value: 
+      objectReference: {fileID: 1359707535}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: uIGameobjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8752926416203462328}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: uIGameobjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1510386797}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: rotationSwitch.Array.data[0]
+      value: 
+      objectReference: {fileID: 1359707535}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: rotationSwitch.Array.data[1]
+      value: 
+      objectReference: {fileID: 1727314180}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: platformCorrespondScale.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: platformCorrespondScale.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: platformCorrespondScale.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: platformCorrespondZRotations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807932040837642251, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
+      propertyPath: platformCorrespondZRotations.Array.data[1]
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf10c44656d25bb408683bbf9d2c8d41, type: 3}
 --- !u!114 &1778448053 stripped
@@ -7277,7 +7342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1379780628286242986, guid: 2ed779e11b8cbeb499b254df5a675a82, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1379780628286242986, guid: 2ed779e11b8cbeb499b254df5a675a82, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7429,3 +7494,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed779e11b8cbeb499b254df5a675a82, type: 3}
+--- !u!1 &8752926416203462328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1379780628286242982, guid: 2ed779e11b8cbeb499b254df5a675a82, type: 3}
+  m_PrefabInstance: {fileID: 8752926416203462327}
+  m_PrefabAsset: {fileID: 0}

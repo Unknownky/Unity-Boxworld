@@ -10,23 +10,45 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("GameItems Settings")]
     public Grid[] grids;
-    private int CurrentGridIndex;
     public bool Wbox = false;
     public bool Bbox = false;
-    
+
+    private int CurrentGridIndex;
 
     [Header("Gradient")]
-    public GameObject Gradient;
+    [SerializeField]private GameObject GradientPC;
+    [SerializeField]private GameObject GradientPhone;
+
+    [Header("PlatformSwitch")]
+    [SerializeField] private GameObject[] uIGameobjects;
+    [SerializeField] private GameObject[] rotationSwitch;
+    [SerializeField] private float[] platformCorrespondZRotations;
+
+    [SerializeField] private GameObject[] scaleSwitch;
+    [SerializeField] private float[] platformCorrespondScale;
+
+    private GameObject Gradient;
 
     private GameObject MusicKeep;
     private GameObject PlayerObject;
     private PlayerController PlayerController;
     private GameObject ButtonContainer = null;
 
+    private PlatformSwitch.Platforms nowPlatform;
     //在该脚本中进行游戏结束的判定，游戏场景的切换，游戏地图的切换，游戏音乐的管理
     private void Awake()
     {
+        nowPlatform = PlatformSwitch._platform;
+        //调整UI以及需要转角度的物体，以及需要改变大小的物体
+        UISwitch();
+
+        //RotationSwitch();
+
+        ScaleSwitch();
+        //调整Gradient
+        Gradient = PlatformSwitch._platform==PlatformSwitch.Platforms.PC? GradientPC:GradientPhone;
         PlayerObject = GameObject.Find("Player");
         ButtonContainer = GameObject.Find("Buttons");
     }
@@ -50,6 +72,33 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C))
             SwitchMap();
     }
+
+
+    private void UISwitch()
+    {
+        for (int i = 0; i < (int)PlatformSwitch.Platforms.All; i++)
+        {
+            uIGameobjects[i].SetActive(i == (int)nowPlatform);
+        }
+    }
+
+    private void RotationSwitch()
+    {
+        for (int i = 0; i < rotationSwitch.Length; i++)
+        {
+            rotationSwitch[i].transform.rotation = Quaternion.Euler(0, 0, platformCorrespondZRotations[(int)nowPlatform]);
+        }
+    }
+
+    private void ScaleSwitch()
+    {
+        float switchScale = platformCorrespondScale[(int)nowPlatform];
+        for (int i = 0; i < scaleSwitch.Length; i++)
+        {
+            scaleSwitch[i].transform.localScale = new Vector3(switchScale,switchScale,switchScale);
+        }
+    }
+
 
     public void SwitchMap()
     {
