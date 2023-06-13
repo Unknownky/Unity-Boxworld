@@ -17,14 +17,26 @@ public class PlayerController : MonoBehaviour
     public string BlackBoxTag = null;
     public string WhiteBoxTag = null;
 
+    [Header("Map Switch")]
+    [SerializeField] private GameObject allItemsContainer;
+
+
     private int Mancd = 0;//储存人物状态;0:normal; 1:black; 2:white
     private string Line = "a";//表示全部的方向
     private Animator animator = null;
     private new Rigidbody2D rigidbody2D = null;
 
+    //得到当前地图的scale即手机适配
+    private Vector3 _scaleVector;//3个浮点数
+    private float _scale;//整体scale用于移动位置的调整
 
     private void Start()
     {
+        if(allItemsContainer!=null)
+        {
+            _scaleVector = allItemsContainer.transform.localScale;
+            _scale = _scaleVector.x;
+        }
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();//给组件赋值避免无法运行
     }
