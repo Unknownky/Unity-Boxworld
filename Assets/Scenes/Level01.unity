@@ -7041,7 +7041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664373507323038982, guid: 6cc7af52c291f7f4786599c8b1a56b0e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664373507323038986, guid: 6cc7af52c291f7f4786599c8b1a56b0e, type: 3}
       propertyPath: m_Pivot.x
@@ -7246,17 +7246,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1499100913}
-    - target: {fileID: 5172477807375362772, guid: 197b173cde1306044b199dc441f8219f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7099054235648887557, guid: 197b173cde1306044b199dc441f8219f, type: 3}
       propertyPath: m_Name
       value: CanvasPhone
-      objectReference: {fileID: 0}
-    - target: {fileID: 7099054235648887557, guid: 197b173cde1306044b199dc441f8219f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7099054235648887561, guid: 197b173cde1306044b199dc441f8219f, type: 3}
       propertyPath: m_Pivot.x
