@@ -155,6 +155,7 @@ MonoBehaviour:
     m_Bits: 576
   BlackBoxTag: BlackBox
   WhiteBoxTag: WhiteBox
+  allItemsContainer: {fileID: 0}
 --- !u!95 &6192975509296705619
 Animator:
   serializedVersion: 4

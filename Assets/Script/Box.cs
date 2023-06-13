@@ -10,20 +10,23 @@ public class Box : MonoBehaviour
     public LayerMask OriginalLayer;//声明检测层避免检测到Target而影响原逻辑
     private string currentTag;
 
+    private float _scale;
     private void Start()
     {
+        _scale = PlayerController._scale;
+        Debug.Log(_scale);
         currentTag = gameObject.tag;//获取当前物体的Tag
     }
     public bool canMoveToDir(Vector2 dir, int Mancd)//与人物运动方向相同
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position+(Vector3)dir*0.45f, dir, 0.5f, OriginalLayer); // 发射射线向前检测
+        RaycastHit2D hit = Physics2D.Raycast(transform.position+_scale * 0.45f * (Vector3)dir, dir, 0.5f*_scale, OriginalLayer); // 发射射线向前检测
         //由于使用了Composite Collider 2D内部应该检测不到,可以减少判断，但是仍然需要外边界的判断
         //Debug.DrawRay(transform.position + (Vector3)dir * 0.5f, dir * 0.5f, Color.red, 1f);//检测出错，进行查错
 
         //无法推入交接面，无法同时推两个箱子,
         if (!hit || Mancd==2)
         {
-            transform.Translate(dir);
+            transform.Translate(dir*_scale);
             return true;
         }
         return false;

@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.00073, y: -145.10028}
+  m_AnchoredPosition: {x: 232.00098, y: -145.1001}
   m_SizeDelta: {x: 351.45996, y: 200.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &466974988
@@ -1095,10 +1095,10 @@ RectTransform:
   m_Father: {fileID: 6924339730631007319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 238.37, y: -197}
-  m_SizeDelta: {x: 743.2652, y: 615.68}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 238.37, y: 343}
+  m_SizeDelta: {x: 743.26514, y: 615.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1700362403
 CanvasRenderer:
@@ -1787,6 +1787,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameAwake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ScaleSwitch, Assembly-CSharp
+        m_MethodName: Switch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

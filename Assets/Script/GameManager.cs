@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private GameObject MusicKeep;
     private GameObject PlayerObject;
     private PlayerController PlayerController;
-    public GameObject ButtonContainer = null;
+    private GameObject ButtonContainer = null;
 
     //在该脚本中进行游戏结束的判定，游戏场景的切换，游戏地图的切换，游戏音乐的管理
     private void Awake()

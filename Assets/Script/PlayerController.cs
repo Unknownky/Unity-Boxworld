@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     //得到当前地图的scale即手机适配
     private Vector3 _scaleVector;//3个浮点数
-    private float _scale;//整体scale用于移动位置的调整
+    public static float _scale;//整体scale用于移动位置的调整
 
     private void Start()
     {
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             _scaleVector = allItemsContainer.transform.localScale;
             _scale = _scaleVector.x;
+            Debug.Log(_scale);
         }
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();//给组件赋值避免无法运行
@@ -53,7 +54,11 @@ public class PlayerController : MonoBehaviour
 
         //进行移动操作
         if (Input.GetKeyDown(KeyCode.RightArrow) || clickstring=="Right")
+        {
+            Debug.Log("Right");
             moveDir = Vector2.right;
+
+        }
 
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || clickstring == "Left")
@@ -90,12 +95,12 @@ public class PlayerController : MonoBehaviour
 
     bool CanMoveToDir(Vector2 dir)
     {
-        RaycastHit2D hitblow = Physics2D.Raycast(transform.position, dir, 0.2f, detectLayer); // 发射射线检测当前地面
-        RaycastHit2D hitblow2 = Physics2D.Raycast(transform.position, dir, 1.0f, detectLayer); // 发射射线检测前面的地面，只检测Wall层
+        RaycastHit2D hitblow = Physics2D.Raycast(transform.position, dir, 0.2f*_scale, detectLayer); // 发射射线检测当前地面
+        RaycastHit2D hitblow2 = Physics2D.Raycast(transform.position, dir, 1.0f*_scale, detectLayer); // 发射射线检测前面的地面，只检测Wall层
                                                                                                //2D向量转为3D，还不太清楚为什么
                                                                                                //检测地面用于判断移动，检测箱子用于进一步的判断
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.5f, boxLayer); // 发射射线检测，只检测box层
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.5f*_scale, boxLayer); // 发射射线检测，只检测box层
 
         //对于特殊状态的运动判定：黑状态，同原逻辑；白状态，逻辑稍微改变；normal：不调用Box的方法
         if(!hitblow && !hitblow2)
@@ -121,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Mancd == 2)//白,说明有箱子并且移动方向有效
                 {//先得到该箱体
-                    RaycastHit2D hitback = Physics2D.Raycast(transform.position, dir*-1, 1.5f, boxLayer); // 发射射线检测，只检测box层
+                    RaycastHit2D hitback = Physics2D.Raycast(transform.position, dir*-1, 1.5f*_scale, boxLayer); // 发射射线检测，只检测box层
                     if (hitback.collider != null && hitback.collider.TryGetComponent<Box>(out var boxback))
                     { 
                         boxback.canMoveToDir(dir, 2);//调用box的方法，具体box的方法进行判断,箱子和人物是同一个方向运动
@@ -141,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector2 dir)
     {
-        transform.Translate(dir);
+        transform.Translate(dir*_scale);
     }
 
     public void Check()
@@ -157,7 +162,7 @@ public class PlayerController : MonoBehaviour
         Vector2[] Direction = new Vector2[4] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         foreach(Vector2 dir in Direction)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.5f, boxLayer); // 发射射线检测，只检测box层
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.5f*_scale, boxLayer); // 发射射线检测，只检测box层
             if (hit)
             {
                 if (hit.collider != null && hit.collider.TryGetComponent<Box>(out var box))
