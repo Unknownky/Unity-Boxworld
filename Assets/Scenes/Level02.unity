@@ -6108,6 +6108,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchMap
       objectReference: {fileID: 0}
+    - target: {fileID: 6025984814379285929, guid: 197b173cde1306044b199dc441f8219f, type: 3}
+      propertyPath: m_text
+      value: "\u7406\u60F3\u95F4\n\u751F\u547D\u662F\u4E00\u79CD\u5947\u5999\u7684\u5E73\u8861\uFF0C\u65E2\u8981\u6709\u575A\u5B9A\u7684\u4FE1\u5FF5\uFF0C\u4E5F\u8981\u6709\u5F00\u653E\u7684\u5FC3\u6001\uFF0C\u65E2\u8981\u6709\u52C7\u6C14\u8FFD\u6C42\u68A6\u60F3\uFF0C\u4E5F\u8981\u6709\u667A\u6167\u63A5\u53D7\u73B0\u5B9E\u3002\u2014\u2014\u53F2\u8482\u82AC\xB7\u67EF\u7EF4"
+      objectReference: {fileID: 0}
     - target: {fileID: 7099054235648887557, guid: 197b173cde1306044b199dc441f8219f, type: 3}
       propertyPath: m_Name
       value: CanvasPhone Variant
